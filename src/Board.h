@@ -11,11 +11,11 @@ class Board{
         int slots;
     
         // Functions:
-        Board();                                // default constructor
-        ~Board();                               // deconstructor
-        draw_Board();                           // creates a string representation of the Board
-        int get_Value(int column);              // gets slot number to put checker
-        add_checker(char checker, int column);  // adds checker to the board
+        Board();                                        // default constructor
+        ~Board();                                       // deconstructor
+        void draw_Board();                              // creates a string representation of the Board
+        int get_Value(int column);                      // gets slot number to put checker
+        void add_checker(char checker, int column);     // adds checker to the board
         
 
 };
