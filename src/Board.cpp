@@ -1,4 +1,4 @@
-// A Connect 4 Board Class
+// Board Class:
 
 #include "Board.h"
 #include <assert.h>
@@ -9,49 +9,52 @@ using namespace std;
 // In a 6x7 board there are 42 slots ... this array represent them
 char input[43];
 // Default Constructor
-Board :: Board(){
+Board :: Board() {
     row = 6;
     column = 7;
 }
 
+// Destructor
+Board :: ~Board(){
+    cout << "The destructor was called" << endl;
+}
+
 // FUNCTION TO DISPLAY THE CONNECT 4 BOARD 
-Board :: draw_Board(){
+void Board :: draw_Board() {
 
     // Display header of the board with column numbers
     cout << endl << "    1   " << "    2   " << "    3   " << "    4   " << "    5   " << "    6   " << "    7   " << endl;
 
     // In a 6x7 board there are 42 slots ... (input array already declared)
     int slots = 42;
-    for(int i = 0 ; i<= 23 ; i++)
-    {
-        if(i % 4 == 0)
+    
+    // i = number of spaces going down (<= 23 because doing divisible by 4)
+    for(int i = 0 ; i<= 23 ; i++) {
+        // if i is divisiable by 4 add a dashed line to start next row
+        if(i % 4 == 0){
             cout << string(57,'-');
-        else
-        {
-            if( (i - 2) % 4 == 0)
-            {
-                slots = 42 - (0.25*i + 0.5)*6 - ((0.25*i + 0.5) -1);
-                for(int i = 0 ; i<=6 ; i++)
-                {
-                    cout << "|" << "   " << input[slots] << "   ";
+        } else {
+            if((i - 2) % 4 == 0) {
+                slots = 42 - (0.25*i + 0.5)*6 - ((0.25*i + 0.5)-1);
+                for(int i = 0 ; i<=6 ; i++){
+                    cout << "|" << "    " << input[slots] << "   ";
                     slots++;
                 }
                 cout << "|";
-            }
-            else
-            {
-                for(int i = 0 ; i<=6 ; i++)
-                    cout << "|"<< string(7,' ');
+            } else {
+                for(int i = 0 ; i<=6 ; i++){
+                   cout << "|" << string(7,' '); 
+                }
                 cout << "|";
             }
         }
         cout << endl;
     }
-    cout << string(57,'-');
+    cout << string(57,'-') << endl;
 }
 
 // FUNCTION TO RETURN THE VALUE IN INPUT ARRAY FROM COLUMN INPUT
-Board :: get_Value(int column){
+int Board :: get_Value(int column){
     // if column entered is too height - return 0 (will produce errow message)
     if(column > 7)
         return 0;
@@ -80,7 +83,7 @@ Board :: get_Value(int column){
 }
 
 // FUNCTION TO ADD A CHECKER TO THE BOARD
-Board :: add_checker(char checker, int column) {
+void Board :: add_checker(char checker, int column) {
     
     cout << endl << "where would you like to play (enter column number)" << endl;
     
@@ -103,4 +106,11 @@ Board :: add_checker(char checker, int column) {
             cout << "ERROR" << endl;
     }
 
+}
+
+// Test and Debug
+int main(){
+    Board board;
+    board.draw_Board();
+    return 0;
 }
