@@ -10,6 +10,10 @@ Player::Player(char piece) {
 	num_moves = 0;
 }
 
+Player::~Player() {
+	cout << "The player destructor was called" << endl;
+}
+
 string Player::get_string() {
 
 //Returns Player with the piece they are playing as
@@ -49,7 +53,7 @@ int next_move(Board* b) {
 		}
 
 //Will see if the column can be added to
-		if (b -> can_add_to(column))
+		if (b -> can_add_to(column) && (column >= 0 && column <= 6))
 			return column;
 		else
 			cout << "Can't add to this column. Please try again." << endl;

@@ -22,6 +22,7 @@ public:
 
     //Constructor of the Player
     Player (char piece);
+    ~Player();
 
     //Get the name of the player
     string get_string();
