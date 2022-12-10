@@ -6,12 +6,19 @@
 #include <iostream>
 using namespace std;
 
-// In a 6x7 board there are 42 slots ... this array represent them
-char input[43];
 // Default Constructor
 Board :: Board() {
     row = 6;
+    width = 6;
     column = 7;
+    height = 7;
+}
+
+Board :: Board(int in_width, int in_height){
+    row = width;
+    column = height;
+    width = in_width;
+    height = in_height;
 }
 
 // Destructor
@@ -22,35 +29,26 @@ Board :: ~Board(){
 // FUNCTION TO DISPLAY THE CONNECT 4 BOARD 
 void Board :: draw_Board() {
 
-    // Display header of the board with column numbers
-    cout << endl << "    1   " << "    2   " << "    3   " << "    4   " << "    5   " << "    6   " << "    7   " << endl;
+    // number of slots
+    char slots [row][column] = {' '};
 
-    // In a 6x7 board there are 42 slots ... (input array already declared)
-    int slots = 42;
-    
-    // i = number of spaces going down (<= 23 because doing divisible by 4)
-    for(int i = 0 ; i<= 23 ; i++) {
-        // if i is divisiable by 4 add a dashed line to start next row
-        if(i % 4 == 0){
-            cout << string(57,'-');
-        } else {
-            if((i - 2) % 4 == 0) {
-                slots = 42 - (0.25*i + 0.5)*6 - ((0.25*i + 0.5)-1);
-                for(int i = 0 ; i<=6 ; i++){
-                    cout << "|" << "    " << input[slots] << "   ";
-                    slots++;
-                }
-                cout << "|";
-            } else {
-                for(int i = 0 ; i<=6 ; i++){
-                   cout << "|" << string(7,' '); 
-                }
-                cout << "|";
-            }
+    cout << endl;
+    // Display header of the board with column numbers
+    for (int i = 1; i <= column; i++){
+        cout << "   " << i <<  "   ";
+    }
+    cout << endl;
+    cout << string(50,'-') << endl;
+
+    // add one row of slots at a time
+    for (int i = 0; i < row; i++){
+        cout << "|  ";                                   // one vertical bar at the start
+        for (int j = 0; j < column; j++){
+            cout << slots[row][column]  << "   |  ";
         }
         cout << endl;
+        cout << string(50,'-') << endl;
     }
-    cout << string(57,'-') << endl;
 }
 
 // FUNCTION TO RETURN THE VALUE IN INPUT ARRAY FROM COLUMN INPUT
@@ -85,28 +83,40 @@ int Board :: get_Value(int column){
 // FUNCTION TO ADD A CHECKER TO THE BOARD
 void Board :: add_checker(char checker, int column) {
     
-    cout << endl << "where would you like to play (enter column number)" << endl;
-    
-    // variable to figure out what slot the checker will go
-    int col;
+    assert(checker == 'X' || checker == 'O');
+    assert(0 <= column < board.column);
 
-    while(true)
-    {
-        cin >> col;
-        // call GetValue to determine which slot it goes in
-        col = get_Value(col);
-        // If not 0 (aka error) put checker in slot
-        if( col != 0 )
-        {
-            input[col] = checker;
-            return;
-        }
-        else
-            // assert that the column entered is valid
-            cout << "ERROR" << endl;
+    
+    row = 0
+    while ((slots[row][col] == ' ') && (row < height-1) && (slots[row+1][col] == ' ')){
+       row += 1 
     }
 
+    slots[row][col] = checker;
+        
+
 }
+
+// FUNCTION TO CHECK IF THERE IS A DIAGNOGNAL WIN (DOWN)
+bool Board :: is_down_diagonal_win(char checker){
+    return false;
+}
+
+// FUNCTION TO CHECK IF THERE IS A DIAGNOGNAL WIN (UP)
+bool Board :: is_up_diagonal_win(char checker){
+    return false;
+}
+
+// FUNCTION TO CHECK IF THERE IS A HORIZONTAL WIN
+bool Board :: is_horizontal_win(char checker){
+    return false;
+}
+
+// FUNCTION TO CHECK IF THERE IS A VERTICAL WIN
+bool Board :: is_vertical_win(char checker){
+    return false;
+}
+
 
 // Test and Debug
 int main(){
