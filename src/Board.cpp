@@ -51,35 +51,6 @@ void Board :: draw_Board() {
     }
 }
 
-// FUNCTION TO RETURN THE VALUE IN INPUT ARRAY FROM COLUMN INPUT
-int Board :: get_Value(int column){
-    // if column entered is too height - return 0 (will produce errow message)
-    if(column > 7)
-        return 0;
-    
-    // variable to hold the slot number
-    int slot_num;
-
-    // Iterate through the rows (bottom to top) to figure out where there is an opening
-    for(int i = 0 ; i<= 6 ; i++)
-    {
-        // if the row is empty break to return that slot number, else go to next row
-        if(input[column+7*i] == ' ')
-        {
-            slot_num = column+7*i;
-            break;
-        }
-    }
-
-    // if column is full/ no open slots - return 0 (will produce error message)
-    if (slot_num > 42){
-        return 0;
-    }
-    
-    // return slot number found
-    return slot_num;
-}
-
 // FUNCTION TO ADD A CHECKER TO THE BOARD
 void Board :: add_checker(char checker, int column) {
     
