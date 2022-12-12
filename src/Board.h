@@ -20,10 +20,7 @@ class Board{
         void add_checker(char checker, int column);     // adds checker to the board
         bool check_win(char checker);
         void win(bool wincon);
-        //bool is_down_diagonal_win(char checker);        // check if diagonal down win
-        //bool is_up_diagonal_win (char checker);         // check if diagonal up win
-        //bool is_vertical_win (char checker);            // check if vertical win
-        //bool is_horizontal_win (char checker);          // check if horiztonal win
+        bool is_full(Board board);                      // returns True if the called Board object is completely full of checkers
 
 };
 
