@@ -27,6 +27,10 @@ public:
     //Get the name of the player
     string get_string();
 
+    char get_checker();
+
+    int get_moves();
+
     //Returns the piece of the opponent
     char opponent_checker();
     

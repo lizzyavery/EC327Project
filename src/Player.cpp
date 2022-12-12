@@ -23,6 +23,15 @@ string Player::get_string() {
 	return name;
 }
 
+char Player::get_checker() {
+      char c = checker;
+	return c;
+}
+
+int Player::get_moves() {
+	return num_moves;
+}
+
 char Player::opponent_checker() {
 
 //Returns a character that represents the opponent player
@@ -33,11 +42,13 @@ char Player::opponent_checker() {
 		return 'X';
 }
 
-int next_move(Board* b) {
+
+
+int Player::next_move(Board* b) {
 	
 //Takes in the board as a parameter and returns the column where the player makes the next move
 //Increment the move of the player
-	num_moves ++;
+	this -> num_moves++;
 
 	int column;
 	while (true) {
@@ -53,7 +64,7 @@ int next_move(Board* b) {
 		}
 
 //Will see if the column can be added to
-		if (b -> can_add_to(column) && (column >= 0 && column <= 6))
+		if (b -> can_add_to(column) || (column >= 0 && column <= 6))
 			return column;
 		else
 			cout << "Can't add to this column. Please try again." << endl;

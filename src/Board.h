@@ -20,7 +20,8 @@ class Board{
         void add_checker(char checker, int column);     // adds checker to the board
         bool check_win(char checker);
         void win(bool wincon);
-        bool is_full(Board board);                      // returns True if the called Board object is completely full of checkers
+        bool is_full(Board* board);                      // returns True if the called Board object is completely full of checkers
+        int get_column();
 
 };
 

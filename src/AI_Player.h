@@ -4,7 +4,11 @@
 #define AIPLAYER_H
 
 #include "Board.h"
+#include <iostream>
 #include <cstring>
+#include <cstdlib>
+
+using namespace std;
 
 
 class AIPlayer{
@@ -17,8 +21,8 @@ class AIPlayer{
     
     // Member Functions:
     AIPlayer(char checker, string tiebreak, int lookahead);      // AI Player Constructor
-    int max_score_column(int scores);                            // 
-    scores_for(Board board);                                     // 
+    int max_score_column(int scores []);                            //
+    int scores_for(Board board);                                     //
 
 };
 

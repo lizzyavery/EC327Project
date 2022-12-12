@@ -177,6 +177,10 @@ bool Board::check_win(char checker)
 	return boolval;
 }
 
+int Board::get_column() {
+    return column;
+}
+
 void Board::win(bool wincon)
 {
 	if(wincon)
@@ -187,18 +191,17 @@ void Board::win(bool wincon)
 }
 
 // returns True if the called Board object is completely full of checkers, and returns False otherwise.
-bool is_full(Board board){
-    for (int i = 0; i < board.column; i++){
-            if (board.can_add_to(i) == true){
+bool Board::is_full(Board* board){
+    for (int i = 0; i < board -> get_column(); i++){
+            if (board -> can_add_to(i) == true){
                 return false;
             }
-    
     }
     return true;
 }
 
 
-// Test and Debug
+/* Test and Debug
 int main(){
 	int a;
 	Board board;
@@ -211,3 +214,5 @@ int main(){
 	}
 	return 0;
 }
+
+ */

@@ -4,41 +4,42 @@
 #include "Board.h"
 #include <assert.h>
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 
-AIPlayer :: AIPlayer(in_checker, in_tiebreak, in_lookahead){
+AIPlayer::AIPlayer(char checker, string tiebreak, int lookahead) {
     assert(checker == 'X' or checker == 'O');
-    assert(tiebreak == 'LEFT' or tiebreak == 'RIGHT' or tiebreak == 'RANDOM');
+    assert(tiebreak == "LEFT" or tiebreak == "RIGHT" or tiebreak == "RANDOM");
     assert(lookahead >= 0);
 
-    checker = in_checker;
-    tiebreak = in_tiebreak;
-    lookahead = in_lookahead;
+    checker = checker;
+    tiebreak = tiebreak;
+    lookahead = lookahead;
 }
 
 /* takes a list scores containing a score for each column of the board, and that returns the index of the column with the maximum score. 
 If one or more columns are tied for the maximum score, the method should apply the called AIPlayer‘s tiebreaking strategy to break the tie.*/
-int AIPlayer :: max_score_column(int scores){
+int AIPlayer :: max_score_column(int scores[]){
 
     int max_scores[] = {0};
     int length = sizeof(max_scores)/sizeof(max_scores[0]);      //length calculation
     for (int x = 1; x <= length; x++){
-        if scores[x] == max(scores){
+        if (scores[x] == max(scores)){
             max_scores += [x];
         }
     }
         
-    if (tiebreak == 'LEFT'){
+    if (tiebreak == "LEFT"){
         return max_scores[0];
-    } else if (tiebreak == 'RIGHT'){
+    } else if (tiebreak == "RIGHT"){
         return max_scores[-1];
     } else {
     }
 }
 
 // takes a Board object board and determines the called AIPlayer's scores for the columns in board. 
-AIPlayer :: scores_for(Board board){
+int AIPlayer :: scores_for(Board board){
 
     scores = [50] * board.row
     for col in range(board.row){
@@ -63,8 +64,10 @@ AIPlayer :: scores_for(Board board){
                 
             board.remove_checker(col)
 
-    return scores
+
     }
+
+    return scores
 }
 
 AIPlayer :: next_move(Board board){
