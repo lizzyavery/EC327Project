@@ -185,26 +185,17 @@ void Board::win(bool wincon)
 		exit(0);
 	}
 }
-// FUNCTION TO CHECK IF THERE IS A DIAGNOGNAL WIN (DOWN)
-/*bool Board :: is_down_diagonal_win(char checker){
-          if
-          return false;
-   }
 
-   // FUNCTION TO CHECK IF THERE IS A DIAGNOGNAL WIN (UP)
-   bool Board :: is_up_diagonal_win(char checker){
-          return false;
-   }
-
-   // FUNCTION TO CHECK IF THERE IS A HORIZONTAL WIN
-   bool Board :: is_horizontal_win(char checker){
-          return false;
-   }
-
-   // FUNCTION TO CHECK IF THERE IS A VERTICAL WIN
-   bool Board :: is_vertical_win(char checker){
-          return false;
-   }*/
+// returns True if the called Board object is completely full of checkers, and returns False otherwise.
+bool is_full(Board board){
+    for (int i = 0; i < board.column; i++){
+            if (board.can_add_to(i) == true){
+                return false;
+            }
+    
+    }
+    return true;
+}
 
 
 // Test and Debug
