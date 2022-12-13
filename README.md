@@ -54,9 +54,9 @@ Demonstration
 Please find the YouTube link below for a demo:
 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 
-https://youtu.be/uUTxFFQAhp8
+https://youtu.be/uUTxFFQAhp8     //This is our working demo.
 
-https://youtu.be/ItgK1tPu5DE
+https://youtu.be/ItgK1tPu5DE     //This is our demo with the AI that does not work well.
 
 Instructions and Interface
 -------
