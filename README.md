@@ -18,8 +18,25 @@ Text-based UI and with ASCII components to
 represent the board and the Connect Four dots.
 
 
+***************Important***************
+
+***************************************
+**Please compile only the 2Player.cpp**
+***************************************
+
+
 Build Instructions
 --------
+
+Just do:
+
+g++ 2Player.cpp
+
+.a/.out
+
+in order to build the game.
+
+Below is our original method to compile the game:
 
 Please use the provided makefile to link all the files together using
 your chosen compiler.
@@ -28,7 +45,7 @@ Or alternatively link the files manually:
 
 If you have g++:
 
-
+Due to complications, we were unable to finish th AIPlayer class. Therefore, we built the game as a two player game.
 
 Demonstration
 ------------
@@ -36,7 +53,9 @@ Demonstration
 Please find the YouTube link below for a demo:
 ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓
 
-https://youtu.be/Ibm3WhfLk08
+https://youtu.be/uUTxFFQAhp8     //This is our working demo.
+
+https://youtu.be/ItgK1tPu5DE     //This is our demo with the AI that does not work well.
 
 Instructions and Interface
 -------
