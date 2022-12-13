@@ -7,15 +7,20 @@ using namespace std;
 
 AIPlayer::AIPlayer(char in_checker, string in_tiebreak, int in_lookahead)
 {
-
+    num_moves = 0;
     checker = in_checker;
     tiebreak = in_tiebreak;
     lookahead = in_lookahead;
 }
 
+char AIPlayer::opponent_checker()
+{
+    return 'X';
+}
+
 string AIPlayer::toString()
 {
-    string player = "Player " + this->checker + " (" + this->tiebreak + ", " + to_string(this->lookahead) + ")";
+    string player = "Player " + to_string(this->checker) + " (" + this->tiebreak + ", " + to_string(this->lookahead) + ")";
     return player;
 }
 

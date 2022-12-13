@@ -74,7 +74,10 @@ void Board :: add_checker(char checker, int column) {
 	check_win(checker);
 	win(check_win(checker));
 }
-
+int Board::get_width()
+{
+	return column;
+}
 void Board::reset()
 {
 	for (int i = 0; i < this->row; i++)

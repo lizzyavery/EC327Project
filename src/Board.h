@@ -12,6 +12,7 @@ class Board{
         // Functions:
         Board();                                        // default constructor
         ~Board();                                       // destructor
+        int get_width();
         void draw_Board();                              // creates a string representation of the Board
         int get_Value(int column);                      // gets slot number to put checker
         void reset();                                   // resets board

@@ -18,6 +18,7 @@ using namespace std;
 class AIPlayer{
     // Data Members:
 public:
+    int num_moves;
     int lookahead;                    //
     char checker;
     string tiebreak;
@@ -25,11 +26,13 @@ public:
 
     
     // Member Functions:\
-
+    
     AIPlayer(char checker, string tiebreak, int lookahead);      // AI Player Constructor
     int max_score_column(vector<int> scores);                            //
-    int scores_for(Board board);                                     //
+    vector<int> scores_for(Board board);                                     //
     string toString();
+    char opponent_checker();
+    int next_move(Board board);
 };
 
 #endif
