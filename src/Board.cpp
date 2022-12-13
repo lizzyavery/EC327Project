@@ -125,10 +125,10 @@ bool Board::check_win(char checker) //Check conditions for win
 {
 	char checkercheck = checker;
 	bool boolval = false;
-	for( int i = 6; i >= 1; --i )
+	for( int i = row; i >= column; --i )
 	{
 
-		for( int j = 7; j >= 1; --j )
+		for( int j = column; j >= 1; --j )
 		{
 
 			if( slots[i][j] == checkercheck   &&
@@ -201,7 +201,7 @@ bool Board::is_full(Board* board){
 }
 
 
-/* Test and Debug
+/* Test and Debug*/
 int main(){
 	int a;
 	Board board;
@@ -214,5 +214,3 @@ int main(){
 	}
 	return 0;
 }
-
- */
