@@ -45,7 +45,7 @@ Or alternatively link the files manually:
 
 If you have g++:
 
-Due to complications, we were unable to finish th AIPlayer class. Therefore, we built the game as a two player game.
+Due to complications, we were unable to finish the AIPlayer class. Therefore, we built the game as a two player game.
 
 Demonstration
 ------------
