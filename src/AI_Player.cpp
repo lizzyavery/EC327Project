@@ -60,11 +60,11 @@ vector<int> AIPlayer::scores_for(Board board)
         {
             scores[col] = -1;
         }
-        else if (board.is_win_for(this->opponent_checker()) == true)
+        else if (board.is_win_for(this->opponent_checker(), col) == true)
         {
             scores[col] = 0;
         }
-        else if (board.is_win_for(this->checker) == true)
+        else if (board.is_win_for(this->checker, col) == true)
         {
             scores[col] = 100;
         }

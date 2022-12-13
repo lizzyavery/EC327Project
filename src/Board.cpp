@@ -23,7 +23,6 @@ Board :: Board() {
 	cout << "Board of size " << column << ' ' << row << " was generated" << endl;
 }
 
-
 // Destructor
 Board :: ~Board(){
 	cout << "The destructor was called" << endl;
@@ -89,24 +88,48 @@ void Board::reset()
 	}
 }
 
-void Board::add_checkers(int columns)
+void Board::add_checkers(char in_checker, int columns)
 {
 	bool boolval = can_add_to(columns);
 	if (boolval) {
-		if (this->checker == 'X')
+		if (in_checker == 'X')
+		{
+			Board::add_checker(in_checker, columns);
+			in_checker = 'O';
+		} else if(in_checker == 'O')
 		{
 			Board::add_checker(checker, columns);
-			this->checker = 'O';
-		} else if(this->checker = 'O')
-		{
-			Board::add_checker(checker, columns);
-			this->checker = 'X';
+			in_checker = 'X';
 		}
 	} else if (!boolval) {
 		cout << "can't add" << endl;
 	}
 }
 
+bool Board::is_win_for(char checker, int column)
+{
+	int i;
+	bool returnval = false;
+	for ( i = row - 1; i >= 0; i--)
+	{
+		if (slots[i][column - 1] == ' ')
+		{
+			slots[i][column - 1] = checker;
+			break;
+		}
+	}
+
+
+	//slots[row][column] = checker;
+	// redraw board with added checker:
+	if (check_win(checker))
+	{
+		slots[i][column - 1] = ' ';
+		returnval = true;
+		return returnval;
+	}
+	return returnval;
+}
 
 bool Board::can_add_to(int columns)
 {
@@ -205,7 +228,7 @@ bool Board::is_full(Board* board){
 
 
 /* Test and Debug*/
-int main(){
+/*int main() {
 	int a;
 	Board board;
 	board.draw_Board();
@@ -216,4 +239,4 @@ int main(){
 		board.add_checkers(a);
 	}
 	return 0;
-}
+}*/
