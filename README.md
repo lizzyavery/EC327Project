@@ -29,6 +29,16 @@ represent the board and the Connect Four dots.
 Build Instructions
 --------
 
+Just do:
+
+g++ 2Player.cpp
+
+.a/.out
+
+in order to build the game.
+
+Below is our original method to compile the game:
+
 Please use the provided makefile to link all the files together using
 your chosen compiler.
 
