@@ -14,6 +14,7 @@
 
 using namespace std;
 
+extern char slots[6][7];
 
 class AIPlayer{
     // Data Members:
@@ -28,11 +29,12 @@ public:
     // Member Functions:\
     
     AIPlayer(char checker, string tiebreak, int lookahead);      // AI Player Constructor
-    int max_score_column(vector<int> scores);                            //
+    int max_score_column(vector<int> scores);                          //
     vector<int> scores_for(Board board);                                     //
     string toString();
     char opponent_checker();
     int next_move(Board board);
+    char get_checker();
 };
 
 #endif

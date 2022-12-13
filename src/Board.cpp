@@ -8,12 +8,7 @@
 using namespace std;
 
 // number of slots
-char slots[6][7] =
-{' ',' ',' ',' ',' ',' ',' ',' ',' ',
- ' ',' ',' ',' ',' ',' ',' ',
- ' ',' ',' ',' ',' ',' ',' ',' ',
- ' ',' ',' ',' ',' ',' ',' ',' ',' ',
- ' ',' ',' ',' ',' ',' ',' ',' ',' '};
+
 // Default Constructor
 Board :: Board() {
 	row = 6;
@@ -54,8 +49,6 @@ void Board :: draw_Board() {
 // FUNCTION TO ADD A CHECKER TO THE BOARD
 void Board :: add_checker(char checker, int column) {
 
-	assert(checker == 'X' || checker == 'O');
-	assert(0 <= column < 7);
 
 	//int row_num = 0;
 	for (int i = row - 1; i >= 0; i--)

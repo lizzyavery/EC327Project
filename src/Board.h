@@ -2,6 +2,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
+extern char slots[6][7];
+
 class Board{
     public:
         // Public Members

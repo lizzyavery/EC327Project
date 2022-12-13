@@ -102,3 +102,8 @@ int AIPlayer::next_move(Board board)
     vector<int> scores = this->scores_for(board);
     return this->max_score_column(scores);
 }
+
+char AIPlayer::get_checker()
+{
+    return 'O';
+}

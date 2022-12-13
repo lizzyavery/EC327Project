@@ -7,6 +7,7 @@
 #include "Board.h"
 using namespace std;
 
+extern char slots[6][7];
 //Connect 4 Player class header
 
 class Player {
