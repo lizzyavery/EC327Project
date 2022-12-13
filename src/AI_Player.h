@@ -4,26 +4,35 @@
 #define AIPLAYER_H
 
 #include "Board.h"
+#include "Player.h"
 #include <iostream>
-#include <cstring>
+#include <string>
+#include <vector>
 #include <cstdlib>
+#include <ctime>
+#include <algorithm>
 
 using namespace std;
 
 
 class AIPlayer{
     // Data Members:
+public:
+    int num_moves;
     int lookahead;                    //
     char checker;
     string tiebreak;
     int scores [7];
 
     
-    // Member Functions:
+    // Member Functions:\
+    
     AIPlayer(char checker, string tiebreak, int lookahead);      // AI Player Constructor
-    int max_score_column(int scores []);                            //
-    int scores_for(Board board);                                     //
-
+    int max_score_column(vector<int> scores);                            //
+    vector<int> scores_for(Board board);                                     //
+    string toString();
+    char opponent_checker();
+    int next_move(Board board);
 };
 
 #endif
