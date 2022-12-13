@@ -121,53 +121,53 @@ bool Board::can_add_to(int columns)
 }
 
 
-bool Board::check_win(char checker)
+bool Board::check_win(char checker) //Check conditions for win
 {
 	char checkercheck = checker;
 	bool boolval = false;
 	for( int i = 6; i >= 1; --i )
 	{
 
-		for( int ix = 7; ix >= 1; --ix )
+		for( int j = 7; j >= 1; --j )
 		{
 
-			if( slots[i][ix] == checkercheck   &&
-			    slots[i-1][ix-1] == checkercheck &&
-			    slots[i-2][ix-2] == checkercheck &&
-			    slots[i-3][ix-3] == checkercheck )
+			if( slots[i][j] == checkercheck   &&
+			    slots[i-1][j-1] == checkercheck && //diagonals
+			    slots[i-2][j-2] == checkercheck &&
+			    slots[i-3][j-3] == checkercheck )
 			{
 				boolval = true;
 			}
 
 
-			if( slots[i][ix] == checkercheck   &&
-			    slots[i][ix-1] == checkercheck &&
-			    slots[i][ix-2] == checkercheck &&
-			    slots[i][ix-3] == checkercheck )
+			if( slots[i][j] == checkercheck   &&
+			    slots[i][j-1] == checkercheck && //horizontal
+			    slots[i][j-2] == checkercheck &&
+			    slots[i][j-3] == checkercheck )
 			{
 				boolval = true;
 			}
 
-			if( slots[i][ix] == checkercheck   &&
-			    slots[i-1][ix] == checkercheck &&
-			    slots[i-2][ix] == checkercheck &&
-			    slots[i-3][ix] == checkercheck )
+			if( slots[i][j] == checkercheck   &&
+			    slots[i-1][j] == checkercheck &&
+			    slots[i-2][j] == checkercheck && //vertical
+			    slots[i-3][j] == checkercheck )
 			{
 				boolval = true;
 			}
 
-			if( slots[i][ix] == checkercheck     &&
-			    slots[i-1][ix+1] == checkercheck &&
-			    slots[i-2][ix+2] == checkercheck &&
-			    slots[i-3][ix+3] == checkercheck )
+			if( slots[i][j] == checkercheck     &&
+			    slots[i-1][j+1] == checkercheck && //diagonals
+			    slots[i-2][j+2] == checkercheck &&
+			    slots[i-3][j+3] == checkercheck )
 			{
 				boolval = true;
 			}
 
-			if ( slots[i][ix] == checkercheck   &&
-			     slots[i][ix+1] == checkercheck &&
-			     slots[i][ix+2] == checkercheck &&
-			     slots[i][ix+3] == checkercheck )
+			if ( slots[i][j] == checkercheck   &&
+			     slots[i][j+1] == checkercheck &&
+			     slots[i][j+2] == checkercheck &&
+			     slots[i][j+3] == checkercheck )
 			{
 				boolval = true;
 			}
