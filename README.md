@@ -22,7 +22,7 @@ represent the board and the Connect Four dots.
 
 ***************************************
 **Please compile only the 2Player.cpp**
-***if you want something functional****
+***if you want something functional***
 ***************************************
 
 
